@@ -2,7 +2,8 @@
     "name": "user/app_etl",
     "autoload": {
         "psr-4": {
-            "User\\AppEtl\\": "src/"
+            "User\\App\\": "src/",
+            "App\\": "src/"
         }
     },
     "authors": [
