@@ -33,18 +33,18 @@ class Leitor
     public function lerArquivo(): array
     {
         $caminho = $this->getDiretorio() . '/' . $this->getArquivo();
-
-        $arquivo = new Arquivo();
-
         $extensao = explode('.', $this->getArquivo());
-        if (condition) {
-            $arquivo->lerArquivoCSV($caminho);
-        } else {
 
-            $arquivo->lerArquivoCSV($caminho);
-        }
+        $classe = '\App\extrator\\' . ucfirst($extensao[1]);
 
-
-        return $arquivo->getDados();
+        return  call_user_func_array(
+            [
+                new $classe,
+                'lerArquivo'
+            ],
+            [
+                $caminho
+            ]
+        );
     }
 }
